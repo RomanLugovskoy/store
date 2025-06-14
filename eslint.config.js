@@ -47,7 +47,7 @@ export default [
           bracketSpacing: true,
           tabWidth: 2,
           endOfLine: "lf",
-          trailingComma: "all",
+          trailingComma: "es5",
         },
       ],
     },
