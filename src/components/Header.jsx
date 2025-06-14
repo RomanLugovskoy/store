@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
+import { RxHome } from "react-icons/rx";
 
 const Header = () => {
   return (
@@ -8,7 +9,7 @@ const Header = () => {
         to="/"
         className="font-bold hover:scale-105 hover:text-sky-200 transition duration-150 ease-in-out"
       >
-        Главная
+        <RxHome size={26} />
       </Link>
       <Link
         to="/cart"

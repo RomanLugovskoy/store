@@ -8,7 +8,7 @@ export const fetchProducts = () =>
   api.get("/products").then((res) => res.data.products);
 
 export const fetchCategories = () =>
-  api.get("/products/categories").then((res) => res.data);
+  api.get("/products/category-list").then((res) => res.data);
 
 export const fetchProductsByCategory = (category) =>
   api.get(`/products/category/${category}`).then((res) => res.data.products);
