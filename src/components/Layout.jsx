@@ -3,10 +3,12 @@ import { Outlet } from "react-router";
 
 const Layout = () => {
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <Header />
-      <Outlet />
-    </>
+      <main className="bg-cyan-50 flex-grow">
+        <Outlet />
+      </main>
+    </div>
   );
 };
 

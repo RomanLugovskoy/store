@@ -21,7 +21,7 @@ const Catalog = () => {
       <input
         type="text"
         placeholder="Поиск по товарам..."
-        className="w-full p-2 border rounded mb-4"
+        className="bg-white w-full p-2 border rounded mb-4"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />

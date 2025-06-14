@@ -1,6 +1,5 @@
-import { createContext, useContext, useState } from "react";
-
-const CartContext = createContext();
+import { useState } from "react";
+import { CartContext } from "./contextHandler";
 
 export const CartProvider = ({ children }) => {
   const [items, setItems] = useState([]);
@@ -30,5 +29,3 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
-
-export const useCart = () => useContext(CartContext);
