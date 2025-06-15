@@ -4,6 +4,7 @@ import {
   fetchCategories,
   fetchProductsByCategory,
   searchProducts,
+  searchInCategory,
 } from "../utils/api";
 import ProductCard from "../components/ProductCard";
 
@@ -27,7 +28,11 @@ const Catalog = () => {
   }, [search]);
 
   useEffect(() => {
-    if (debouncedSearch) {
+    if (debouncedSearch && selectedCategory) {
+      searchInCategory(selectedCategory, debouncedSearch)
+        .then(setProducts)
+        .catch(console.error);
+    } else if (debouncedSearch) {
       searchProducts(debouncedSearch).then(setProducts).catch(console.error);
     } else if (selectedCategory) {
       fetchProductsByCategory(selectedCategory)

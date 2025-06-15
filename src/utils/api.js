@@ -15,3 +15,23 @@ export const fetchProductsByCategory = (category) =>
 
 export const searchProducts = (query) =>
   api.get(`/products/search?q=${query}`).then((res) => res.data.products);
+
+export const searchInCategory = (category, query) => {
+  if (category && query) {
+    return api
+      .get(`/products/category/${category}`)
+      .then((res) =>
+        res.data.products.filter(
+          (p) =>
+            p.title.toLowerCase().includes(query.toLowerCase()) ||
+            p.description.toLowerCase().includes(query.toLowerCase())
+        )
+      );
+  } else if (query) {
+    return searchProducts(query);
+  } else if (category) {
+    return fetchProductsByCategory(category);
+  } else {
+    return fetchProducts();
+  }
+};
