@@ -46,7 +46,10 @@ const Cart = () => {
             Checkout
           </button>
           <button
-            onClick={clearCart}
+            onClick={() => {
+              confirm("Are you sure you want to clear the cart?") &&
+                clearCart();
+            }}
             className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 cursor-pointer"
           >
             Clear
