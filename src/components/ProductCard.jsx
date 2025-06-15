@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
   const isInCart = items.some((item) => item.id === product.id);
 
   return (
-    <div className="border border-gray-200 rounded-xl p-6 flex flex-col bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out relative z-10">
+    <article className="border border-gray-200 rounded-xl p-6 flex flex-col bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out relative z-10">
       <div className="relative overflow-hidden rounded-lg mb-4 h-48">
         <img
           src={product.thumbnail}
@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
         </span>
         <ProductBtn isInCart={isInCart} product={product} />
       </div>
-    </div>
+    </article>
   );
 };
 

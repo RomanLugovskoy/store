@@ -4,7 +4,7 @@ import {
   fetchCategories,
   fetchProductsByCategory,
   searchProducts,
-} from "../services/api";
+} from "../utils/api";
 import ProductCard from "../components/ProductCard";
 
 const Catalog = () => {
@@ -54,8 +54,8 @@ const Catalog = () => {
       >
         <option value="">All categories</option>
         {categories.map((cat, i) => (
-          <option key={i} value={cat}>
-            {cat.slice(0, 1).toUpperCase() + cat.slice(1)}
+          <option className="capitalize" key={i} value={cat}>
+            {cat}
           </option>
         ))}
       </select>
