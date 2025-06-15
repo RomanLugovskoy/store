@@ -17,7 +17,7 @@ const Header = () => {
 
       <Link
         to="/cart"
-        className="relative translate-[-6px] hover:text-sky-200 transition duration-150 ease-in-out"
+        className="relative -translate-[6px] hover:text-sky-200 transition duration-150 ease-in-out"
       >
         {totalItems > 0 && (
           <div className="top-1 absolute left-3">

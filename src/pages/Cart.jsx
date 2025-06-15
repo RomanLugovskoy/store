@@ -37,13 +37,21 @@ const Cart = () => {
         ))}
       </ul>
       <div className="mt-6 flex justify-between items-center">
-        <span className="text-xl font-bold">Итого: ${total.toFixed(2)}</span>
-        <button
-          onClick={clearCart}
-          className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-        >
-          Clear
-        </button>
+        <span className="text-xl font-bold">Total: ${total.toFixed(2)}</span>
+        <div className="flex gap-1">
+          <button
+            disabled
+            className="bg-emerald-600 text-white px-4 py-2 rounded hover:bg-emerald-700 cursor-pointer disabled:cursor-not-allowed disabled:bg-gray-500"
+          >
+            Checkout
+          </button>
+          <button
+            onClick={clearCart}
+            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 cursor-pointer"
+          >
+            Clear
+          </button>
+        </div>
       </div>
     </div>
   );
