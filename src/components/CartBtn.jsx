@@ -11,7 +11,7 @@ const CartBtn = ({ item }) => {
         type="button"
         id="decrement-button"
         data-input-counter-decrement="counter-input"
-        className="shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+        className="shrink-0 bg-rose-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-9 w-9 md:h-6 md:w-6 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
       >
         <svg
           className="w-2.5 h-2.5 text-gray-900 dark:text-white"
@@ -44,7 +44,7 @@ const CartBtn = ({ item }) => {
         type="button"
         id="increment-button"
         data-input-counter-increment="counter-input"
-        className="shrink-0 bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+        className="shrink-0 bg-emerald-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-9 w-9 md:h-6 md:w-6 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
       >
         <svg
           className="w-2.5 h-2.5 text-gray-900 dark:text-white"
