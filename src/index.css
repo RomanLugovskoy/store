@@ -1,1 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-edu: "Edu NSW ACT Hand Pre", cursive;
+  --font-roboto: "Roboto", sans-serif;
+}

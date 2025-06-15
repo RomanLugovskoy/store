@@ -3,6 +3,7 @@ import {
   fetchProducts,
   fetchCategories,
   fetchProductsByCategory,
+  searchProducts,
 } from "../services/api";
 import ProductCard from "../components/ProductCard";
 
@@ -11,6 +12,7 @@ const Catalog = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
 
   useEffect(() => {
     fetchCategories().then(setCategories).catch(console.error);
@@ -18,16 +20,23 @@ const Catalog = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedCategory) {
-      fetchProductsByCategory(selectedCategory).then(setProducts);
-    } else {
-      fetchProducts().then(setProducts);
-    }
-  }, [selectedCategory]);
+    const handler = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 500);
+    return () => clearTimeout(handler);
+  }, [search]);
 
-  const filtered = products.filter((p) =>
-    p.title.toLowerCase().includes(search.toLowerCase())
-  );
+  useEffect(() => {
+    if (debouncedSearch) {
+      searchProducts(debouncedSearch).then(setProducts).catch(console.error);
+    } else if (selectedCategory) {
+      fetchProductsByCategory(selectedCategory)
+        .then(setProducts)
+        .catch(console.error);
+    } else {
+      fetchProducts().then(setProducts).catch(console.error);
+    }
+  }, [debouncedSearch, selectedCategory]);
 
   return (
     <div className="p-4 flex flex-col gap-4">
@@ -39,19 +48,20 @@ const Catalog = () => {
         onChange={(e) => setSearch(e.target.value)}
       />
       <select
-        className="bg-white w-full p-2 border rounded"
+        className="bg-white w-full p-2 border rounded font-roboto"
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
       >
         <option value="">All</option>
         {categories.map((cat, i) => (
           <option key={i} value={cat}>
-            {cat}
+            {cat.slice(0, 1).toUpperCase() + cat.slice(1)}
           </option>
         ))}
       </select>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {filtered.map((p) => (
+        {products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>

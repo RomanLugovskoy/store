@@ -16,14 +16,39 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const removeFromCart = (id) =>
+  const increaseQty = (id) => {
+    setItems((prev) =>
+      prev.map((x) => (x.id === id ? { ...x, qty: x.qty + 1 } : x))
+    );
+  };
+
+  const decreaseQty = (id) => {
+    setItems((prev) => {
+      const item = prev.find((x) => x.id === id);
+      if (item && item.qty === 1) {
+        return prev.filter((x) => x.id !== id);
+      }
+      return prev.map((x) => (x.id === id ? { ...x, qty: x.qty - 1 } : x));
+    });
+  };
+
+  const removeFromCart = (id) => {
     setItems((prev) => prev.filter((x) => x.id !== id));
+  };
   const clearCart = () => setItems([]);
   const total = items.reduce((sum, x) => sum + x.price * x.qty, 0);
 
   return (
     <CartContext.Provider
-      value={{ items, addToCart, removeFromCart, clearCart, total }}
+      value={{
+        items,
+        addToCart,
+        increaseQty,
+        decreaseQty,
+        removeFromCart,
+        clearCart,
+        total,
+      }}
     >
       {children}
     </CartContext.Provider>

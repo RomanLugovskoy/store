@@ -12,3 +12,6 @@ export const fetchCategories = () =>
 
 export const fetchProductsByCategory = (category) =>
   api.get(`/products/category/${category}`).then((res) => res.data.products);
+
+export const searchProducts = (query) =>
+  api.get(`/products/search?q=${query}`).then((res) => res.data.products);

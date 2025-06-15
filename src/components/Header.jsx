@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { RxHome } from "react-icons/rx";
 import { useCart } from "../context/contextHandler";
 
@@ -8,7 +7,7 @@ const Header = () => {
   const totalItems = items.reduce((sum, item) => sum + item.qty, 0);
 
   return (
-    <header className="bg-gray-800 text-white p-4 flex justify-between items-center sticky top-0 z-20">
+    <header className="bg-gray-800 text-white p-4 flex justify-between items-center w-full fixed top-0 z-20">
       <Link
         to="/"
         className="font-bold hover:scale-105 hover:text-sky-200 transition duration-150 ease-in-out"
@@ -16,18 +15,10 @@ const Header = () => {
         <RxHome size={26} />
       </Link>
 
-      {/* <Link
+      <Link
         to="/cart"
-        className="font-bold hover:text-sky-200 transition duration-150 ease-in-out"
+        className="relative translate-[-6px] hover:text-sky-200 transition duration-150 ease-in-out"
       >
-        <PiShoppingCartSimpleBold size={26} />
-        {totalItems > 0 && (
-          <span className="absolute top-1 right-1 bg-red-600 text-white text-xs rounded-full px-1.5 py-0.5">
-            {totalItems}
-          </span>
-        )}
-      </Link> */}
-      <Link to="/cart" className="relative translate-[-6px]">
         {totalItems > 0 && (
           <div className="top-1 absolute left-3">
             <p className="flex h-2 w-2 items-center justify-center rounded-full bg-rose-600 p-2.5 text-xs text-white">
