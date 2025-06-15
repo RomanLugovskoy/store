@@ -33,7 +33,7 @@ const CartBtn = ({ item }) => {
         type="text"
         id="counter-input"
         data-input-counter
-        className="shrink-0 text-gray-900 dark:text-blue-900 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
+        className="shrink-0 text-gray-900 dark:text-blue-900 border-0 bg-transparent text-md font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
         placeholder=""
         value={qty}
         required

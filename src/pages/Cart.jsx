@@ -31,12 +31,6 @@ const Cart = () => {
             </div>
             <div className="flex items-center space-x-4">
               <span>${(item.price * item.qty).toFixed(2)}</span>
-              {/* <button
-                onClick={() => removeFromCart(item.id)}
-                className="text-red-600 hover:underline"
-              >
-                Удалить
-              </button> */}
               <CartBtn item={item} />
             </div>
           </li>
