@@ -33,7 +33,7 @@ const ProductBtn = ({ isInCart, product }) => {
           type="text"
           value={qty}
           readOnly
-          className="bg-gray-50 border-x-0 border-gray-300 h-10 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border-x-0 border-gray-300 h-10 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 cursor-default"
         />
         <button
           type="button"
@@ -62,9 +62,9 @@ const ProductBtn = ({ isInCart, product }) => {
     return (
       <button
         onClick={() => addToCart(product)}
-        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition duration-300 ease-in-out font-medium"
+        className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition duration-300 ease-in-out font-medium"
       >
-        В корзину
+        Buy
       </button>
     );
   }

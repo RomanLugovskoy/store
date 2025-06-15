@@ -11,7 +11,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 function App() {
   return (
     <CartProvider>
-      <Router>
+      <Router basename="/store">
         <Suspense
           fallback={
             <div className="flex items-center justify-center h-screen">

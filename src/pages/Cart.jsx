@@ -8,9 +8,9 @@ const Cart = () => {
   if (items.length === 0) {
     return (
       <div className="p-4">
-        <h2 className="text-xl">Корзина пуста</h2>
-        <Link to="/" className="text-blue-600 hover:underline">
-          Вернуться в каталог
+        <h2 className="text-2xl mb-3">Your cart is empty</h2>
+        <Link to="/" className="text-blue-600 hover:underline text-xl">
+          Back to catalog
         </Link>
       </div>
     );
@@ -18,7 +18,7 @@ const Cart = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl mb-4">Корзина</h2>
+      <h2 className="text-2xl mb-4">Cart</h2>
       <ul className="space-y-4">
         {items.map((item) => (
           <li
@@ -27,7 +27,7 @@ const Cart = () => {
           >
             <div>
               <h3 className="font-semibold">{item.title}</h3>
-              <p>Количество: {item.qty}</p>
+              <p>Quantity: {item.qty}</p>
             </div>
             <div className="flex items-center space-x-4">
               <span>${(item.price * item.qty).toFixed(2)}</span>
@@ -42,7 +42,7 @@ const Cart = () => {
           onClick={clearCart}
           className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
         >
-          Очистить корзину
+          Clear
         </button>
       </div>
     </div>

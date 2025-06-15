@@ -48,7 +48,7 @@ const Catalog = () => {
         onChange={(e) => setSearch(e.target.value)}
       />
       <select
-        className="bg-white w-full p-2 border rounded font-roboto"
+        className="bg-white w-full p-2 border rounded font-roboto capitalize"
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
       >
