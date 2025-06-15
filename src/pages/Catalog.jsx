@@ -52,7 +52,7 @@ const Catalog = () => {
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
       >
-        <option value="">All</option>
+        <option value="">All categories</option>
         {categories.map((cat, i) => (
           <option key={i} value={cat}>
             {cat.slice(0, 1).toUpperCase() + cat.slice(1)}

@@ -1,8 +1,9 @@
 import { useCart } from "../context/contextHandler";
 import { Link } from "react-router";
+import CartBtn from "../components/CartBtn";
 
 const Cart = () => {
-  const { items, removeFromCart, clearCart, total } = useCart();
+  const { items, clearCart, total } = useCart();
 
   if (items.length === 0) {
     return (
@@ -30,12 +31,13 @@ const Cart = () => {
             </div>
             <div className="flex items-center space-x-4">
               <span>${(item.price * item.qty).toFixed(2)}</span>
-              <button
+              {/* <button
                 onClick={() => removeFromCart(item.id)}
                 className="text-red-600 hover:underline"
               >
                 Удалить
-              </button>
+              </button> */}
+              <CartBtn item={item} />
             </div>
           </li>
         ))}
