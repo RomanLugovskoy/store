@@ -1,8 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CartContext } from "./contextHandler";
 
+const loadCartFromStorage = () => {
+  try {
+    const serializedCart = localStorage.getItem("cart");
+    if (serializedCart === null) {
+      return [];
+    }
+    return JSON.parse(serializedCart);
+  } catch (error) {
+    console.error("Failed to load cart from localStorage:", error);
+    return [];
+  }
+};
+
+const saveCartToStorage = (cart) => {
+  try {
+    const serializedCart = JSON.stringify(cart);
+    localStorage.setItem("cart", serializedCart);
+  } catch (error) {
+    console.error("failed to save cart to localStorage:", error);
+  }
+};
+
 export const CartProvider = ({ children }) => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(loadCartFromStorage());
+
+  useEffect(() => {
+    saveCartToStorage(items);
+  }, [items]);
 
   const addToCart = (product) => {
     setItems((prev) => {
@@ -35,7 +61,10 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (id) => {
     setItems((prev) => prev.filter((x) => x.id !== id));
   };
-  const clearCart = () => setItems([]);
+  const clearCart = () => {
+    setItems([]);
+    localStorage.removeItem("cart");
+  };
   const total = items.reduce((sum, x) => sum + x.price * x.qty, 0);
 
   return (
