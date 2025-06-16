@@ -62,7 +62,7 @@ const ProductBtn = ({ isInCart, product }) => {
     return (
       <button
         onClick={() => addToCart(product)}
-        className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition duration-300 ease-in-out font-medium"
+        className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition duration-300 ease-in-out font-medium cursor-pointer"
       >
         Add
       </button>
