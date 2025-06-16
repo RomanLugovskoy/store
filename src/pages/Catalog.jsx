@@ -17,7 +17,6 @@ const Catalog = () => {
 
   useEffect(() => {
     fetchCategories().then(setCategories).catch(console.error);
-    fetchProducts().then(setProducts).catch(console.error);
   }, []);
 
   useEffect(() => {
@@ -28,9 +27,6 @@ const Catalog = () => {
   }, [search]);
 
   useEffect(() => {
-    if (!debouncedSearch && !selectedCategory) {
-      return;
-    }
     if (debouncedSearch && selectedCategory) {
       searchInCategory(selectedCategory, debouncedSearch)
         .then(setProducts)
@@ -41,6 +37,8 @@ const Catalog = () => {
       fetchProductsByCategory(selectedCategory)
         .then(setProducts)
         .catch(console.error);
+    } else {
+      fetchProducts().then(setProducts).catch(console.error);
     }
   }, [debouncedSearch, selectedCategory]);
 
